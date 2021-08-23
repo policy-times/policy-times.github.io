@@ -1,8 +1,6 @@
-<?php
-$scan = scandir('myFolder');
-foreach($scan as $file) {
-   if (!is_dir("myFolder/$file")) {
-      echo $file.'\n';
-   }
+var files = <?php $out = array();
+foreach (glob('file/*.html') as $filename) {
+    $p = pathinfo($filename);
+    $out[] = $p['filename'];
 }
-?>
+echo json_encode($out); ?>;
