@@ -1,20 +1,47 @@
-<script language="javascript">
-//requiring path and fs modules
-const path = require('.');
-const fs = require('fs');
-//joining path of directory 
-const directoryPath = path.join(__dirname, 'Documents');
-//passsing directoryPath and callback function
-fs.readdir(directoryPath, function (err, files) {
-    //handling error
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    } 
-    //listing all files using forEach
-    files.forEach(function (file) {
-        // Do whatever you want to do with the file
-        console.log(file); 
-    });
-});
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Some Title</title>
+<script type="text/javascript">
+function showAvailableDrives()
+{
+document.write( getDriveList() );
+} 
 
+function getDriveList()
+{ 
+var fso, s, n, e, x;
+fso = new ActiveXObject('Scripting.FileSystemObject');
+e = new Enumerator( fso.Drives );
+s = '';
+do
+{ x = e.item();
+s = s + x.DriveLetter;
+s += ':- ';
+if ( x.DriveType == 3 ) n = x.ShareName;
+else if ( x.IsReady ) 
+n = x.VolumeName;
+else n = '[Drive not ready]';
+
+s += n + '<br>';
+e.moveNext();
+} 
+while ( !e.atEnd() );
+return( s );
+} 
 </script>
+</head>
+<body>
+
+<p>
+
+<script type="text/javascript"> 
+showAvailableDrives(); 
+</script>
+
+</p>
+
+</body>
+
+</html>
