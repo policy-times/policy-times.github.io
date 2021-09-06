@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" >
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta content="width=device-width, initial-scale=1" name="viewport"> 
+  <meta name="x-apple-disable-message-reformatting"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta content="telephone=no" name="format-detection"> 
+  <title>Policy Times  </title> 
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+	.row{
+		    margin-top:40px;
+		    padding: 0 10px;
+		}
+		.clickable{
+		    cursor: pointer;   
+		}
+
+		.panel-heading div {
+			margin-top: -18px;
+			font-size: 15px;
+		}
+		.panel-heading div span{
+			margin-left:5px;
+		}
+		.panel-body{
+			display: none;
+		}
+
+</style>
+
+<script>
+/**
+*   I don't recommend using this plugin on large tables, I just wrote it to make the demo useable. It will work fine for smaller tables 
+*   but will likely encounter performance issues on larger tables.
+*
+*		<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+*		$(input-element).filterTable()
+*		
+*	The important attributes are 'data-action="filter"' and 'data-filters="#table-selector"'
+*/
+(function(){
+    'use strict';
+	var $ = jQuery;
+	$.fn.extend({
+		filterTable: function(){
+			return this.each(function(){
+				$(this).on('keyup', function(e){
+					$('.filterTable_no_results').remove();
+					var $this = $(this), 
+                        search = $this.val().toLowerCase(), 
+                        target = $this.attr('data-filters'), 
+                        $target = $(target), 
+                        $rows = $target.find('tbody tr');
+                        
+					if(search == '') {
+						$rows.show(); 
+					} else {
+						$rows.each(function(){
+							var $this = $(this);
+							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+						})
+						if($target.find('tbody tr:visible').size() === 0) {
+							var col_count = $target.find('tr').first().find('td').size();
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+							$target.find('tbody').append(no_results);
+						}
+					}
+				});
+			});
+		}
+	});
+	$('[data-action="filter"]').filterTable();
+})(jQuery);
+
+$(function(){
+    // attach table filter plugin to inputs
+	$('[data-action="filter"]').filterTable();
+	
+	$('.container').on('click', '.panel-heading span.filter', function(e){
+		var $this = $(this), 
+			$panel = $this.parents('.panel');
+		
+		$panel.find('.panel-body').slideToggle();
+		if($this.css('display') != 'none') {
+			$panel.find('.panel-body input').focus();
+		}
+	});
+	$('[data-toggle="tooltip"]').tooltip();
+})
+
+</script>
+ 
+ </head> 
+ <body style="width:100%;font-family:'trebuchet ms', 'lucida grande', 'lucida sans unicode', 'lucida sans', tahoma, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0;"> 
+ 
+  <div class="es-wrapper-color" style="background-color:#F6F6F6;"> 
+
+   <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top"> 
+     <tr style="border-collapse:collapse"> 
+      <td class="st-br" valign="top" style="padding:0;Margin:0"> 
+        
+       <table cellpadding="0" cellspacing="0" class="es-content" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%"> 
+         <tr style="border-collapse:collapse"> 
+          <td align="center" bgcolor="#f6f6f6" style="padding:0;Margin:0;background-color:#F6F6F6"> 
+           <table class="es-content-body" align="center" cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:100%" bgcolor="#ffffff"> 
+             <tr style="border-collapse:collapse"> 
+              <td align="left" style="padding:5px;Margin:0;border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:0px;border-bottom-left-radius:0px;background-color:#FFFFFF" bgcolor="#ffffff"> 
+               <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
+                 <tr style="border-collapse:collapse"> 
+                  <td align="center" valign="top" style="padding:0;Margin:0;width:590px"> 
+                   <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF" role="presentation"> 
+                     <tr style="border-collapse:collapse"> 
+                      <td align="left" style="padding:0;Margin:0;font-size:0px;background-color:rgb(224,143,61);background-size: 100% 100%;"><img src="images/58471601985925795.jpeg" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="256"></td> 
+					  <td align="left" style="padding:0;Margin:0;background-color:rgb(224,143,61);background-size: 100% 100%;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Cambria, times, baskerville, georgia, serif;line-height:48px;color:#114490;font-size:32px;padding-left:10px;"><strong>Monthly Newsletter Archive</strong></p></td> 
+                     </tr> 
+                   </table></td> 
+                 </tr> 
+               </table></td> 
+             </tr> 
+           </table></td> 
+         </tr> 
+       </table> 
+       
+       
+		<table cellpadding="0" cellspacing="0" class="es-content" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%"> 
+         <tr style="border-collapse:collapse"> 
+          <td align="center" bgcolor="#f6f6f6" style="padding:0;Margin:0;background-color:#F6F6F6"> 
+           
+		   <div class="container">
+    <h1>Click the filter icon <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
+    	<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">Click the filter icon </h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-filter"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filter Newsletter" />
+					</div>
+					<table class="table table-hover" id="task-table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Month</th>
+								<th>Year</th>
+								<th>Link</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1.</td>
+								<td>August</td>
+								<td>2021</td>
+								<td><a href="August_2021/index.html">Click Here</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+					  .
+					  
+					  
+		   </td> 
+                 </tr> 
+               </table></td> 
+             </tr> 
+           </table></td> 
+         </tr> 
+       </table> 
+
+		
+
+
+
+
+</div>  
+ </body>
+</html>	   
