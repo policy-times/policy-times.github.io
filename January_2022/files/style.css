@@ -11050,7 +11050,7 @@ box-shadow:none;
  nav#ttr_menu .icon-bar
 {
 background-color:#FF6F05;
-background:rgba(255,111,5,1);
+background:#FFFFFF;
 background-clip:padding-box;
 }
  #ttr_menu .navbar-toggle:hover, #ttr_menu .navbar-toggle:focus
